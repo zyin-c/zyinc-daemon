@@ -1,10 +1,14 @@
 package runner
 
-import "github.com/zyin-c/extras/schema"
+type RunnerInstances struct {
+	BaseDirectory string `json:"basedir"`
+	FileName      string `json:"filename"`
+	EnvFile       string `json:"envfile"`
+}
 
 type Runner struct {
-	RunnerId string
-	Message  schema.SocketMessage
+	RunnerId        string
+	RunnerInstances map[string]RunnerInstances
 }
 
 func NewRunner() (*Runner, error) {
